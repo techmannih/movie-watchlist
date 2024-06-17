@@ -1,4 +1,5 @@
-/* src/components/MovieList.css */
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
 .movie-list {
     display: flex;
     flex-wrap: wrap;

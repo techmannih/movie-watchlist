@@ -1,11 +1,12 @@
-/* src/components/MovieItem.css */
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
 .movie-item {
     padding: 20px;
     margin: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #333;
     border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -15,13 +16,14 @@
 
 .movie-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
 }
 
 .movie-item h2 {
     margin: 0;
     font-size: 24px;
-    color: #333;
+    color: #bb86fc;
+    font-family: 'Gochi Hand', cursive;
 }
 
 .movie-item h5 {
@@ -32,7 +34,7 @@
 
 .movie-item p {
     margin: 5px 0;
-    color: #666;
+    color: #e0e0e0;
     font-size: 16px;
 }
 
@@ -49,8 +51,8 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
+    background-color: #bb86fc;
+    color: #121212;
     font-size: 14px;
     cursor: pointer;
     text-decoration: none;
@@ -61,7 +63,7 @@
 
 .movie-item-actions button:hover,
 .movie-item-actions a:hover {
-    background-color: #0056b3;
+    background-color: #3700b3;
 }
 
 .movie-item-actions a {
@@ -88,7 +90,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #444;
     transition: .4s;
     border-radius: 34px;
 }
@@ -106,7 +108,7 @@
 }
 
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #bb86fc;
 }
 
 input:checked + .slider:before {

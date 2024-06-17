@@ -1,11 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
+/* Global Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    --color-background: #1e1e1e;
+    --color-background-input: #2a2a2a;
+    --color-primary: #bb86fc;
+    --color-primary-faded: #3700b3;
+}
+
+/* Movie Detail Page Styles */
 .movie-detail-container {
     padding: 20px;
     margin: 20px auto;
     max-width: 800px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #1e1e1e;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 24px -16px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.movie-detail-container:hover {
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.7);
 }
 
 .movie-detail-header {
@@ -16,7 +40,8 @@
 .movie-detail-header h1 {
     font-size: 32px;
     margin: 0;
-    color: #333;
+    color: #bb86fc;
+    font-family: 'Gochi Hand', cursive;
 }
 
 .movie-detail-info {
@@ -25,30 +50,32 @@
 
 .movie-detail-info p {
     margin: 10px 0;
-    color: #666;
+    color: #cfcfcf;
     font-size: 16px;
 }
 
 .movie-detail-info p span {
     font-weight: bold;
+    color: #bb86fc;
 }
 
 .additional-details {
     margin-bottom: 20px;
     padding: 10px;
-    background-color: #f5f5f5;
+    background-color: #2a2a2a;
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .additional-details p {
     margin: 8px 0;
-    color: #333;
+    color: #cfcfcf;
     font-size: 14px;
 }
 
 .additional-details p span {
     font-weight: bold;
-    color: #007BFF;
+    color: #bb86fc;
 }
 
 .movie-detail-rating,
@@ -59,7 +86,7 @@
 .movie-detail-rating h2,
 .movie-detail-review h2 {
     font-size: 24px;
-    color: #007BFF;
+    color: #bb86fc;
     margin-bottom: 10px;
 }
 
@@ -70,6 +97,12 @@
 .star-rating span {
     font-size: 24px;
     cursor: pointer;
+    color: #e0e0e0;
+    transition: color 0.2s ease;
+}
+
+.star-rating span:hover {
+    color: #ffcc00;
 }
 
 .review-form {
@@ -81,25 +114,33 @@
 .review-form textarea {
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #444;
     border-radius: 5px;
     font-size: 16px;
     resize: vertical;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    transition: border-color 0.2s ease;
+}
+
+.review-form textarea:focus {
+    border-color: #bb86fc;
+    outline: none;
 }
 
 .review-form button {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
+    background-color: #bb86fc;
+    color: #121212;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .review-form button:hover {
-    background-color: #0056b3;
+    background-color: #3700b3;
 }
 
 /* Media Query for Mobile Devices */

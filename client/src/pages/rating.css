@@ -1,4 +1,5 @@
-/* src/components/StarRating.css */
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
 .star-rating {
     display: flex;
     gap: 5px;
@@ -7,11 +8,11 @@
 .star-rating span {
     font-size: 24px;
     cursor: pointer;
-    color: grey;
+    color: #666;
     transition: color 0.3s;
 }
 
 .star-rating span:hover,
 .star-rating span.active {
-    color: gold;
+    color: #ffcc00;
 }

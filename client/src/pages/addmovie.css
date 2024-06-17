@@ -1,11 +1,15 @@
-/* src/pages/AddMoviePage.css */
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
 .add-movie-page {
     padding: 20px;
     text-align: center;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 .add-movie-page h1 {
     margin-bottom: 20px;
     font-size: 32px;
-    color: #333;
+    color: #bb86fc;
+    font-family: 'Gochi Hand', cursive;
 }
