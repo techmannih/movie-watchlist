@@ -166,14 +166,11 @@ export const toggleWatched = (id) => async (dispatch, getState) => {
 
     // Update the local state with the updated movie
     const data = await response.json();
-    const updatedMovies = movies.map((m) =>
-      m._id === id ? { ...m, watched: !m.watched } : m
-    );
 
     // Dispatch the action to update Redux state
     dispatch({
       type: TOGGLE_WATCHED,
-      payload: updatedMovies,
+      payload: data.movie,
     });
 
     // Save updated state to local storage
@@ -237,7 +234,7 @@ export const reviewMovie = (id, review) => async (dispatch) => {
     const data = await response.json();
     dispatch({
       type: REVIEW_MOVIE,
-      payload: data, // Assuming `data` contains the updated movie object with review
+      payload: data.movie, // Assuming `data` contains the updated movie object with review
     });
 
     console.log("Movie reviewed successfully!");
