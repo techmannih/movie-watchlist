@@ -1,0 +1,43 @@
+/* src/components/MovieList.css */
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+@media (min-width: 768px) {
+    .movie-list {
+        justify-content: space-between;
+    }
+}
+
+.movie-list .movie-item {
+    flex: 1 1 calc(100% - 40px); /* Full width minus the gap for mobile */
+    max-width: calc(100% - 40px); /* Full width minus the gap for mobile */
+}
+
+@media (min-width: 480px) {
+    .movie-list .movie-item {
+        flex: 1 1 calc(50% - 40px); /* Two items per row for tablets */
+        max-width: calc(50% - 40px); /* Two items per row for tablets */
+    }
+}
+
+@media (min-width: 768px) {
+    .movie-list .movie-item {
+        flex: 1 1 calc(33.333% - 40px); /* Three items per row for desktops */
+        max-width: calc(33.333% - 40px); /* Three items per row for desktops */
+    }
+}
+
+@media (min-width: 1024px) {
+    .movie-list .movie-item {
+        flex: 1 1 calc(25% - 40px); /* Four items per row for larger desktops */
+        max-width: calc(25% - 40px); /* Four items per row for larger desktops */
+    }
+}

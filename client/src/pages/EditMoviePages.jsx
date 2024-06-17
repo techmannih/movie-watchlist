@@ -1,6 +1,6 @@
 import React from 'react';
 import MovieForm from '../components/movieForm';
-
+import './editmovie.css';
 const EditMoviePage = ({ match, history }) => {
     return (
         <div>

@@ -37,14 +37,13 @@ const movieReducer = (state = initialState, action) => {
         ...state,
         movies: state.movies.filter((movie) => movie._id !== action.payload),
       };
-    case TOGGLE_WATCHED:
-      return {
-        ...state,
-        movies: state.movies.map((movie) =>
-          movie._id === action.payload._id ? action.payload : movie
-        ),
-      };
-
+      case TOGGLE_WATCHED:
+        return {
+            ...state,
+            movies: state.movies.map((movie) =>
+                movie._id === action.payload._id ? action.payload : movie
+            ),
+        };
     case RATE_MOVIE:
       return {
         ...state,

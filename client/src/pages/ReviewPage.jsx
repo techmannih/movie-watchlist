@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { reviewMovie } from '../redux/action/MovieAction';
+import "./review.css";
 
 const ReviewForm = ({ movieId }) => {
     const [review, setReview] = useState('');
@@ -13,7 +14,7 @@ const ReviewForm = ({ movieId }) => {
     };
 
     return (
-        <form onSubmit={submitReview}>
+        <form className="review-form" onSubmit={submitReview}>
             <textarea
                 value={review}
                 onChange={(e) => setReview(e.target.value)}

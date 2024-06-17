@@ -1,0 +1,17 @@
+/* src/components/StarRating.css */
+.star-rating {
+    display: flex;
+    gap: 5px;
+}
+
+.star-rating span {
+    font-size: 24px;
+    cursor: pointer;
+    color: grey;
+    transition: color 0.3s;
+}
+
+.star-rating span:hover,
+.star-rating span.active {
+    color: gold;
+}

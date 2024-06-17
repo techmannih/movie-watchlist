@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { addMovie, editMovie } from '../redux/action/MovieAction';
-
+import "./movieform.css";
 const MovieForm = () => { // Remove history from props
     const dispatch = useDispatch();
     const navigate = useNavigate(); // Access navigate function from react-router-dom

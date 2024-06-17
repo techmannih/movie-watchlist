@@ -220,8 +220,6 @@ export const rateMovie = (id, rating) => async (dispatch) => {
     console.error("Error rating movie:", error);
   }
 };
-
-// MovieAction.js - Review a movie action
 export const reviewMovie = (id, review) => async (dispatch) => {
   try {
     const response = await fetch(`http://localhost:5000/api/movies/${id}/review`, {
@@ -231,7 +229,6 @@ export const reviewMovie = (id, review) => async (dispatch) => {
       },
       body: JSON.stringify({ review }),
     });
-    console.log("Reviewing movie...", response);
 
     if (!response.ok) {
       throw new Error("Failed to review movie");
@@ -240,7 +237,7 @@ export const reviewMovie = (id, review) => async (dispatch) => {
     const data = await response.json();
     dispatch({
       type: REVIEW_MOVIE,
-      payload: data,
+      payload: data, // Assuming `data` contains the updated movie object with review
     });
 
     console.log("Movie reviewed successfully!");
@@ -248,6 +245,7 @@ export const reviewMovie = (id, review) => async (dispatch) => {
     console.error("Error reviewing movie:", error);
   }
 };
+
 
 
 export const setMovies = (movies) => ({

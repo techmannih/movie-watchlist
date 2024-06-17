@@ -1,6 +1,6 @@
 import React from 'react';
 import MovieForm from '../components/movieForm';
-
+import './addmovie.css';
 const AddMoviePage = ({ history }) => {
     return (
         <div>

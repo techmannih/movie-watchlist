@@ -1,0 +1,11 @@
+/* src/pages/AddMoviePage.css */
+.add-movie-page {
+    padding: 20px;
+    text-align: center;
+}
+
+.add-movie-page h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #333;
+}

@@ -1,0 +1,11 @@
+/* src/pages/EditMoviePage.css */
+.edit-movie-page {
+    padding: 20px;
+    text-align: center;
+}
+
+.edit-movie-page h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #333;
+}
