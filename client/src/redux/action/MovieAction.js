@@ -142,6 +142,7 @@ export const deleteMovie = (id) => async (dispatch) => {
 };
 
 
+
 export const toggleWatched = (id) => async (dispatch, getState) => {
   try {
     const movies = getState().movieList.movies;
