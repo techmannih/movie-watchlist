@@ -101,10 +101,11 @@ export const getMovieById = (id) => async (dispatch) => {
   }
 };
 
+// MovieAction.js
 export const editMovie = (movie) => async (dispatch) => {
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/movies/${movie._id}`,
       {
         method: "PUT",
         headers: {
@@ -121,14 +122,16 @@ export const editMovie = (movie) => async (dispatch) => {
     const data = await response.json();
     dispatch({
       type: EDIT_MOVIE,
-      payload: data,
+      payload: data, // Assuming your backend returns updated movie data
     });
 
     console.log("Movie edited successfully!");
   } catch (error) {
     console.error("Error editing movie:", error);
+    throw error; // Propagate the error to handle it in the component
   }
 };
+
 
 export const deleteMovie = (id) => async (dispatch) => {
   try {
