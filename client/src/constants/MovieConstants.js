@@ -7,5 +7,5 @@ export const TOGGLE_WATCHED = "TOGGLE_WATCHED";
 export const SET_MOVIES = "SET_MOVIES";
 export const RATE_MOVIE = "RATE_MOVIE";
 export const REVIEW_MOVIE = "REVIEW_MOVIE";
-export const SET_MOVIE_DETAILS = "SET_MOVIE_DETAILS"; // New action type for setting movie details
+export const SET_MOVIE_DETAILS = "SET_MOVIE_DETAILS"; 
 

@@ -4,7 +4,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-width: 500px;
+    /* max-width: 500px; */
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #333;
@@ -58,5 +58,5 @@ button {
 }
 
 button:hover {
-    background-color: #3700b3;
+    background-color: #f7f6fb;
 }

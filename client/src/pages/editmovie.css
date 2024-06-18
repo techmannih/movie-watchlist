@@ -5,6 +5,7 @@
     text-align: center;
     background-color: #121212;
     color: #e0e0e0;
+    font-family: 'Gochi Hand', cursive;
 }
 
 .edit-movie-page h1 {
@@ -12,4 +13,10 @@
     font-size: 32px;
     color: #bb86fc;
     font-family: 'Gochi Hand', cursive;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left; 
 }

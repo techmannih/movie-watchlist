@@ -19,6 +19,7 @@ const ReviewForm = ({ movieId }) => {
                 value={review}
                 onChange={(e) => setReview(e.target.value)}
                 placeholder="Write your review here"
+                required
             />
             <button type="submit">Submit Review</button>
         </form>

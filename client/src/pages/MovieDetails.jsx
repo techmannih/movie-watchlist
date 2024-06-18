@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { getMovieById } from "../redux/action/MovieAction";
 import StarRating from "./StarRating";
 import ReviewForm from "./ReviewPage";
-import "./movieDetail.css"; // Import CSS file for styling
+import "./movieDetail.css";
 
 const MovieDetailPage = () => {
   const { id: movieId } = useParams();

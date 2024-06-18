@@ -140,12 +140,12 @@ body {
 }
 
 .review-form button:hover {
-    background-color: #3700b3;
+    background-color: #fbfafd;
 }
 
 /* Media Query for Mobile Devices */
 @media only screen and (max-width: 600px) {
     .review-form textarea {
-        font-size: 14px; /* Adjust font size for smaller screens */
+        font-size: 14px;
     }
 }
