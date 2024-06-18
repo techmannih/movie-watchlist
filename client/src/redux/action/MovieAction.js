@@ -11,13 +11,16 @@ import {
 
 export const addMovie = (movie) => async (dispatch) => {
   try {
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies`,  {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(movie),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/movies`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(movie),
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Failed to add movie");
@@ -44,7 +47,9 @@ export const addMovie = (movie) => async (dispatch) => {
 
 export const getMovies = () => async (dispatch) => {
   try {
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies`);
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/movies`
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch movies");
@@ -71,7 +76,9 @@ export const getMovies = () => async (dispatch) => {
 
 export const getMovieById = (id) => async (dispatch) => {
   try {
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}`);
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}`
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch movie");
@@ -125,9 +132,12 @@ export const editMovie = (movie) => async (dispatch) => {
 
 export const deleteMovie = (id) => async (dispatch) => {
   try {
-    const response = await  fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Failed to delete movie");
@@ -146,8 +156,6 @@ export const deleteMovie = (id) => async (dispatch) => {
   }
 };
 
-
-
 export const toggleWatched = (id) => async (dispatch, getState) => {
   try {
     const movies = getState().movieList.movies;
@@ -158,13 +166,16 @@ export const toggleWatched = (id) => async (dispatch, getState) => {
     }
 
     const updatedMovie = { ...movie, watched: !movie.watched };
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}/toggleWatched`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedMovie),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}/toggleWatched`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedMovie),
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Failed to toggle watched status");
@@ -180,7 +191,7 @@ export const toggleWatched = (id) => async (dispatch, getState) => {
     });
 
     // Save updated state to local storage
-    localStorage.setItem('movies', JSON.stringify(updatedMovies));
+    localStorage.setItem("movies", JSON.stringify(updatedMovies));
 
     // Alternative console output based on watched status
     const consoleMessage = updatedMovie.watched
@@ -188,25 +199,24 @@ export const toggleWatched = (id) => async (dispatch, getState) => {
       : "Marked as unwatched successfully:";
 
     console.log(consoleMessage, data); // Log success message
-
   } catch (error) {
     console.error("Error toggling watched status:", error);
     // Optionally handle errors, e.g., dispatch an error action or set an error state
   }
 };
 
-
-
-
 export const rateMovie = (id, rating) => async (dispatch) => {
   try {
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}/rate`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ rating }),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}/rate`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ rating }),
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Failed to rate movie");
@@ -225,13 +235,16 @@ export const rateMovie = (id, rating) => async (dispatch) => {
 };
 export const reviewMovie = (id, review) => async (dispatch) => {
   try {
-    const response = await  fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}/review`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ review }),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}/review`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ review }),
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Failed to review movie");
@@ -248,8 +261,6 @@ export const reviewMovie = (id, review) => async (dispatch) => {
     console.error("Error reviewing movie:", error);
   }
 };
-
-
 
 export const setMovies = (movies) => ({
   type: SET_MOVIES,
