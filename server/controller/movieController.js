@@ -4,10 +4,10 @@ const Movie = require('../models/movieModel');
 const getMovies = async (req, res) => {
   try {
     const movies = await Movie.find({});
-    res.json(movies);
+    res.status(200).json({ message: 'Movies retrieved successfully', movies });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error retrieving movies:', error);
+    res.status(500).json({ message: 'An error occurred while retrieving movies' });
   }
 };
 
@@ -16,13 +16,13 @@ const getMovieById = async (req, res) => {
   try {
     const movie = await Movie.findById(req.params.id);
     if (movie) {
-      res.json(movie);
+      res.status(200).json({ message: 'Movie retrieved successfully', movie });
     } else {
       res.status(404).json({ message: 'Movie not found' });
     }
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error retrieving movie by ID:', error);
+    res.status(500).json({ message: 'An error occurred while retrieving the movie' });
   }
 };
 
@@ -32,10 +32,10 @@ const addMovie = async (req, res) => {
     const { title, description, releaseYear, genre } = req.body;
     const movie = new Movie({ title, description, releaseYear, genre });
     const createdMovie = await movie.save();
-    res.status(201).json(createdMovie);
+    res.status(201).json({ message: 'Movie added successfully', createdMovie });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error adding movie:', error);
+    res.status(500).json({ message: 'An error occurred while adding the movie' });
   }
 };
 
@@ -51,13 +51,13 @@ const updateMovie = async (req, res) => {
       movie.releaseYear = releaseYear;
       movie.genre = genre;
       const updatedMovie = await movie.save();
-      res.json(updatedMovie);
+      res.status(200).json({ message: 'Movie updated successfully', updatedMovie });
     } else {
       res.status(404).json({ message: 'Movie not found' });
     }
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error updating movie:', error);
+    res.status(500).json({ message: 'An error occurred while updating the movie' });
   }
 };
 
@@ -68,13 +68,13 @@ const deleteMovie = async (req, res) => {
 
     if (movie) {
       await Movie.deleteOne({ _id: req.params.id });
-      res.json({ message: 'Movie removed' });
+      res.status(200).json({ message: 'Movie deleted successfully' });
     } else {
       res.status(404).json({ message: 'Movie not found' });
     }
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error deleting movie:', error);
+    res.status(500).json({ message: 'An error occurred while deleting the movie' });
   }
 };
 
@@ -82,15 +82,16 @@ const deleteMovie = async (req, res) => {
 const toggleWatched = async (req, res) => {
   try {
     const movie = await Movie.findById(req.params.id);
-    if (!movie) return res.status(404).json({ message: 'Movie not found' });
-
-    movie.watched = !movie.watched;
-    await movie.save();
-
-    res.json({ message: 'Watched status updated', movie });
+    if (movie) {
+      movie.watched = !movie.watched;
+      await movie.save();
+      res.status(200).json({ message: 'Watched status updated successfully', movie });
+    } else {
+      res.status(404).json({ message: 'Movie not found' });
+    }
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error toggling watched status:', error);
+    res.status(500).json({ message: 'An error occurred while updating the watched status' });
   }
 };
 
@@ -99,15 +100,16 @@ const rateMovie = async (req, res) => {
   try {
     const { rating } = req.body;
     const movie = await Movie.findById(req.params.id);
-    if (!movie) return res.status(404).json({ message: 'Movie not found' });
-
-    movie.ratings.push(rating);
-    await movie.save();
-
-    res.json({ message: 'Rating added', movie });
+    if (movie) {
+      movie.ratings.push(rating);
+      await movie.save();
+      res.status(200).json({ message: 'Rating added successfully', movie });
+    } else {
+      res.status(404).json({ message: 'Movie not found' });
+    }
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error adding rating:', error);
+    res.status(500).json({ message: 'An error occurred while adding the rating' });
   }
 };
 
@@ -116,15 +118,16 @@ const reviewMovie = async (req, res) => {
   try {
     const { review } = req.body;
     const movie = await Movie.findById(req.params.id);
-    if (!movie) return res.status(404).json({ message: 'Movie not found' });
-
-    movie.reviews.push(review);
-    await movie.save();
-
-    res.json({ message: 'Review added', movie });
+    if (movie) {
+      movie.reviews.push(review);
+      await movie.save();
+      res.status(200).json({ message: 'Review added successfully', movie });
+    } else {
+      res.status(404).json({ message: 'Movie not found' });
+    }
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error adding review:', error);
+    res.status(500).json({ message: 'An error occurred while adding the review' });
   }
 };
 
