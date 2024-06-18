@@ -11,7 +11,7 @@ import {
 
 export const addMovie = (movie) => async (dispatch) => {
   try {
-    const response = await fetch("http://localhost:5000/api/movies", {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies`,  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,29 +44,34 @@ export const addMovie = (movie) => async (dispatch) => {
 
 export const getMovies = () => async (dispatch) => {
   try {
-    const response = await fetch("http://localhost:5000/api/movies");
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch movies");
     }
 
     const data = await response.json();
+    console.log("Raw response data:", data); // Log raw data
+
+    if (!Array.isArray(data.movies)) {
+      console.error("Fetched data is not an array:", data.movies);
+      throw new Error("Fetched data is not an array");
+    }
 
     dispatch({
       type: SET_MOVIES,
-      payload: data,
+      payload: data.movies,
     });
 
-    console.log("Movies fetched successfully:", data); // Optional: Log success message
+    console.log("Movies fetched successfully:", data.movies);
   } catch (error) {
     console.error("Error fetching movies:", error);
-    // Optionally handle errors, e.g., dispatch an error action or set an error state
   }
 };
 
 export const getMovieById = (id) => async (dispatch) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/movies/${id}`);
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch movie");
@@ -92,7 +97,7 @@ export const getMovieById = (id) => async (dispatch) => {
 export const editMovie = (movie) => async (dispatch) => {
   try {
     const response = await fetch(
-      `http://localhost:5000/api/movies/${movie._id}`,
+      `${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}`,
       {
         method: "PUT",
         headers: {
@@ -120,7 +125,7 @@ export const editMovie = (movie) => async (dispatch) => {
 
 export const deleteMovie = (id) => async (dispatch) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/movies/${id}`, {
+    const response = await  fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}`, {
       method: "DELETE",
     });
 
@@ -153,7 +158,7 @@ export const toggleWatched = (id) => async (dispatch, getState) => {
     }
 
     const updatedMovie = { ...movie, watched: !movie.watched };
-    const response = await fetch(`http://localhost:5000/api/movies/${id}/toggleWatched`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}/toggleWatched`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -195,7 +200,7 @@ export const toggleWatched = (id) => async (dispatch, getState) => {
 
 export const rateMovie = (id, rating) => async (dispatch) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/movies/${id}/rate`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}/rate`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -220,7 +225,7 @@ export const rateMovie = (id, rating) => async (dispatch) => {
 };
 export const reviewMovie = (id, review) => async (dispatch) => {
   try {
-    const response = await fetch(`http://localhost:5000/api/movies/${id}/review`, {
+    const response = await  fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies/${id}/review`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
