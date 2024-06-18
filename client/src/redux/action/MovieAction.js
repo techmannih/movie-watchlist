@@ -152,10 +152,10 @@ export const deleteMovie = (id) => async (dispatch) => {
       payload: id, // Send the id of the deleted movie as payload
     });
 
-    console.log("Movie deleted successfully:", id); // Optional: Log success message
+    console.log(`Movie deleted successfully: ${id}`); // Log success message with deleted movie id
   } catch (error) {
     console.error("Error deleting movie:", error);
-    // Optionally handle errors, e.g., dispatch an error action or set an error state
+    throw error; // Propagate the error to handle it in the component or error boundary
   }
 };
 
